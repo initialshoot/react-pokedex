@@ -7,8 +7,19 @@ const Navbar = () => {
     return (
 
         <nav>
-    
-            <img src={imgUrl}></img>
+
+            <div />
+
+            <div>
+                <img 
+                src={imgUrl}
+                alt="Logo Pokeapi"
+                className='navbarImg'
+                />
+            </div>
+
+            <div> ❤️ </div>
+            
 
         </nav>
 
