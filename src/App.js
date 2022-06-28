@@ -1,4 +1,5 @@
-import Navbar from "../src/components/navbar";
+import Navbar from "./components/navbar";
+import Search from "./components/search";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <Navbar />
 
       <div className="App">
-          Pokedex
+          <Search />
       </div>
     </div>
     
