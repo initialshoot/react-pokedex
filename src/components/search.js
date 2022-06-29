@@ -30,16 +30,6 @@ const SearchBar = () => {
                 <button onClick={onClick}>Search</button>
             </div>
 
-            <div>
-                {pokemon &&
-                <div>
-                    <div>Nombre: {pokemon.name}</div>
-                    <div>Peso: {pokemon.weight}</div>
-                    <img src={pokemon} alt="Pokemon sprite"/>
-                </div>
-                }
-            </div>
-
         </div>
 
     )
