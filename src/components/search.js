@@ -1,5 +1,6 @@
 import React from "react";
-const {useState} = React;
+import { searchPokemon } from '../pokeApi';
+const { useState } = React;
 
 const SearchBar = () => {
     let [search, setSearch] = useState('');
@@ -9,8 +10,9 @@ const SearchBar = () => {
     }
 
     const onClick = (e) => {
-        console.log('apretado');
-    }
+        const data = searchPokemon(search);
+        console.log(data);
+    };
 
     return (
         
