@@ -112,6 +112,12 @@ nav {
     align-items: center;
 }
 
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .App {
     font-family: sans-serif;
 }
