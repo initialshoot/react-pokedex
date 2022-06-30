@@ -38,6 +38,7 @@ nav {
 }
 
 .searchbar-btn button {
+    cursor: pointer;
     background-color: #363636;
     border: none;
     border-radius: 10px;
