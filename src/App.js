@@ -1,4 +1,5 @@
 import Navbar from "./components/navbar";
+import Pokedex from "./components/pokedex";
 import Search from "./components/search";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 
       <div className="App">
           <Search />
+          <Pokedex />
       </div>
     </div>
     

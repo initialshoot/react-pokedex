@@ -46,6 +46,20 @@ nav {
     padding: 10px 12px;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.pokedex-grid {
+    display: grid;
+    grid-auto-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
 .App {
     font-family: sans-serif;
 }
