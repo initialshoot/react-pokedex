@@ -44,7 +44,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if(!searching) {
+    if (!searching) {
       fetchPokemons();
     }
   }, [page]);
