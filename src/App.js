@@ -8,6 +8,9 @@ const { useState, useEffect } = React;
 
 function App() {
   const [pokemons, setPokemons] = useState([])
+  const [page, setPage] = useState();
+  const [total, setTotal] = useState();
+  const [loading, setLoading] = useState(false);
 
   const fetchPokemons = async () => {
     try {
@@ -33,7 +36,12 @@ function App() {
 
       <div className="App">
           <Search />
-          <Pokedex pokemons={pokemons} />
+          { loading ? (
+            <div>Loading...</div>
+          ) : (
+            <Pokedex pokemons={pokemons} />
+          )}
+          
       </div>
 
     </div>
