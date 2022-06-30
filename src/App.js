@@ -3,7 +3,7 @@ import Navbar from "./components/navbar";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
 import { CaughtProvider } from "./contexts/caught";
-import { getPokemonData, getPokemons } from "./pokeApi";
+import { getPokemonData, getPokemons, searchPokemon } from "./pokeApi";
 
 const { useState, useEffect } = React;
 
@@ -15,6 +15,7 @@ function App() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [caught, setCaught] = useState([]);
+  const [notFound, setNotFound] = useState(false);
 
   const fetchPokemons = async () => {
     try {
@@ -57,6 +58,19 @@ function App() {
     window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
   }
 
+  const onSearch = async (pokemon) => {
+    setLoading(true);
+    const result = await searchPokemon(pokemon);
+    if(!result) {
+      setNotFound(true);
+      setLoading(false);
+      return;
+    } else {
+      setPokemons([result]);
+    }
+    setLoading(false);
+  };
+
   return (
 
     <CaughtProvider 
@@ -71,8 +85,12 @@ function App() {
       <Navbar />
 
       <div className="App">
-          <Search />
-            <Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />  
+          <Search onSearch={onSearch}/>
+          {notFound ? (
+          <div>Pokemon not found.</div>)
+          :(
+          <Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />  
+          )}
       </div>
 
     </div>
