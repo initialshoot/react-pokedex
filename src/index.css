@@ -118,6 +118,12 @@ nav {
     align-items: center;
 }
 
+.not-found-text {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 20px;
+}
+
 .App {
     font-family: sans-serif;
 }

@@ -16,18 +16,20 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [caught, setCaught] = useState([]);
   const [notFound, setNotFound] = useState(false);
+  const [searching, setSearching] = useState(false);
 
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const data = await getPokemons(25, 25 * page);
+      const data = await getPokemons(24, 24 * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url);
       })
       const results = await Promise.all(promises);
       setPokemons(results);
       setLoading(false);
-      setTotal(Math.ceil(data.count / 25))
+      setTotal(Math.ceil(data.count / 24))
+      setNotFound(false);
     } catch (error) {}
   }
 
@@ -42,8 +44,9 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log('Fetching all the pokemons');
-    fetchPokemons();
+    if(!searching) {
+      fetchPokemons();
+    }
   }, [page]);
 
   const updateCaughtPokemon = (name) => {
@@ -59,7 +62,12 @@ function App() {
   }
 
   const onSearch = async (pokemon) => {
+    if(!pokemon) {
+      return fetchPokemons();
+    }
     setLoading(true);
+    setNotFound(false);
+    setSearching(true);
     const result = await searchPokemon(pokemon);
     if(!result) {
       setNotFound(true);
@@ -67,8 +75,11 @@ function App() {
       return;
     } else {
       setPokemons([result]);
+      setPage(0);
+      setTotal(1);
     }
     setLoading(false);
+    setSearching(false);
   };
 
   return (
@@ -87,7 +98,7 @@ function App() {
       <div className="App">
           <Search onSearch={onSearch}/>
           {notFound ? (
-          <div>Pokemon not found.</div>)
+          <div className="not-found-text">Pokemon not found.</div>)
           :(
           <Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />  
           )}
