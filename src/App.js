@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./components/navbar";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
-import { getPokemons } from "./pokeApi";
+import { getPokemonData, getPokemons } from "./pokeApi";
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function App() {
   const [pokemons, setPokemons] = useState([])
@@ -12,7 +12,13 @@ function App() {
   const fetchPokemons = async () => {
     try {
       const data = await getPokemons();
-      setPokemons(data.results);
+      console.log(data.results)
+      const promises = data.results.map(async (pokemon) => {
+        return await getPokemonData(pokemon.url);
+      })
+      const results = await Promise.all(promises);
+      console.log(results)
+      setPokemons(results)
     } catch (error) {}
   }
 
@@ -29,6 +35,7 @@ function App() {
           <Search />
           <Pokedex pokemons={pokemons} />
       </div>
+
     </div>
     
   );
