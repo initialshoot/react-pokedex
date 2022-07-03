@@ -40,14 +40,21 @@ const Pokemon = (props) => {
 
     const defaultBackground = 'white';
 
-    const typeColor = 
+    const typeName = 
     pokemon.types.map((type) => {
         return type.type.name;
     });
 
+    const typeOne = typeName[0];
+    const typeTwo = typeName[1];
+
+    const getTypeImgOne = `https://veekun.com/dex/media/types/en/${typeOne}.png`;
+    const getTypeImgTwo = `https://veekun.com/dex/media/types/en/${typeTwo}.png`;
+
+
     return (
 
-        <div className="pokemon-card" style = {{background: bgColor[typeColor[0]] || defaultBackground}}>
+        <div className="pokemon-card" style = {{background: bgColor[typeName[0]] || defaultBackground}}>
             <div className="pokemon-img-container">
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img"/>
             </div>
@@ -58,9 +65,16 @@ const Pokemon = (props) => {
                 </div>  
                 <div className="card-bottom">
                     <div className="pokemon-type">
-                        {pokemon.types.map((type, idx) => {
-                            return <div key={idx} className="pokemon-type-text">{type.type.name}</div>;
-                        })}
+                        <div className="pokemon-type-text">
+                            <img src={getTypeImgOne} alt={typeOne}></img>
+                            {typeTwo ? 
+                                (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
+                                (<span></span>)
+                            }
+                            
+                        </div>
+                        
+                        
                     </div>
 
                     <button onClick={catchPokemon}>

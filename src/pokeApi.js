@@ -22,7 +22,7 @@ export const getPokemons = async (limit=25, offset=0) => {
 
     }   catch(err) {}
 
-}
+};
 
 export const getPokemonData = async (url) => {
     
@@ -33,4 +33,4 @@ export const getPokemonData = async (url) => {
 
     }   catch(err) {}
 
-}
+};
