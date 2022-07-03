@@ -26,8 +26,8 @@ const Navbar = () => {
             </div>
 
             <div>
-                <h1>Pokemones Atrapados:</h1>
-                ✅ {caughtPokemons.length} </div>
+                <h1>Caught Pokemons: ✅ {caughtPokemons.length}</h1>
+                 </div>
             
 
         </nav>
