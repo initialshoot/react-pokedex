@@ -7,8 +7,6 @@ const Navbar = () => {
 
     const { caughtPokemons } = useContext(CaughtContext); 
 
-    console.log(caughtPokemons);
-
     let imgUrl = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
 
     return (
@@ -26,7 +24,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <h1>Caught Pokemons: ✅ {caughtPokemons.length}</h1>
+                <h1 className='caught-pokemon'>Caught Pokemons: ✅ {caughtPokemons.length}</h1>
                  </div>
             
 

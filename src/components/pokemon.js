@@ -65,15 +65,17 @@ const Pokemon = (props) => {
                 </div>  
                 <div className="card-bottom">
                     <div className="pokemon-type">
-                        <div className="pokemon-type-text">
-                            <img src={getTypeImgOne} alt={typeOne}></img>
-                            {typeTwo ? 
-                                (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
-                                (<span></span>)
-                            }
-                            
-                        </div>
-                        
+    
+                            <div className="type-img">
+                                <img src={getTypeImgOne} alt={typeOne}></img>
+                            </div>
+
+                            <div className="type-img">
+                                {typeTwo ? 
+                                    (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
+                                    (<span></span>)
+                                }
+                            </div>
                         
                     </div>
 

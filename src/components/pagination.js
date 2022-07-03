@@ -10,7 +10,7 @@ const Pagination = (props) => {
                     <span role="img" aria-label="left">⬅️</span>
                 </div>
             </button>
-            <div>
+            <div className="pages">
                 {page} de {totalPages}
             </div>
             <button onClick={onRightClick}>

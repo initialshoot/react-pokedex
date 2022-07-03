@@ -28,7 +28,7 @@ function App() {
       const results = await Promise.all(promises);
       setPokemons(results);
       setLoading(false);
-      setTotal(Math.ceil(data.count / 24))
+      setTotal(Math.ceil(data.count / 24));
       setNotFound(false);
     } catch (error) {}
   }

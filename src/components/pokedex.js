@@ -31,15 +31,15 @@ const Pokedex = (props) => {
 
                 <div> Loading... </div> 
                 :
-            <div className='pokedex-grid'>
+                <div className='pokedex-grid'>
             
-                {pokemons.map((pokemon, idx) => {
-                    return (
-                        <Pokemon pokemon={pokemon} key={pokemon.name} />
-                    )
-                })}
+                    {pokemons.map((pokemon, idx) => {
+                        return (
+                            <Pokemon pokemon={pokemon} key={pokemon.name} />
+                        )
+                    })}
             
-            </div>
+                </div>
 
             }
 
