@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
 import { CaughtProvider } from "./contexts/caught";
@@ -103,6 +104,8 @@ function App() {
           <Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />  
           )}
       </div>
+
+      <Footer />
 
     </div>
     </CaughtProvider>
