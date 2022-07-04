@@ -3,8 +3,10 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
+import Home from "./components/home";
 import { CaughtProvider } from "./contexts/caught";
 import { getPokemonData, getPokemons, searchPokemon } from "./pokeApi";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const { useState, useEffect } = React;
 
@@ -60,7 +62,7 @@ function App() {
     }
     setCaught(updated);
     window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
-  }
+  };
 
   const onSearch = async (pokemon) => {
     if(!pokemon) {
@@ -85,30 +87,47 @@ function App() {
 
   return (
 
-    <CaughtProvider 
-      value={{
-        caughtPokemons: caught, 
-        updateCaughtPokemon: updateCaughtPokemon
-      }} 
-    >
-    
-    <div>
+        <CaughtProvider 
+            value={{
+              caughtPokemons: caught, 
+              updateCaughtPokemon: updateCaughtPokemon
+            }} 
+          >
+          
+          <div>
 
-      <Navbar />
+            <Navbar />
+            
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Home />}/>
+                  <Route path="/pokemons" element={  
+                  
+                    <div className="App">
+                      <Search onSearch={onSearch} />
 
-      <div className="App">
-          <Search onSearch={onSearch}/>
-          {notFound ? (
-          <div className="not-found-text">Pokemon not found.</div>)
-          :(
-          <Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />  
-          )}
-      </div>
+                            {notFound ? (
+                              <div className="not-found-text">Pokemon not found.</div>) :
+                              (<Pokedex 
+                                loading={loading} 
+                                pokemons={pokemons} 
+                                page={page} 
+                                setPage={setPage} 
+                                total={total} /> )
+                            } 
+                    </div>
 
-      <Footer />
+                  }/>
+                  
+                </Routes>
+              </BrowserRouter>
+              
+            <Footer />
 
-    </div>
-    </CaughtProvider>
+          </div>
+
+        </CaughtProvider>
+
   );
 }
 

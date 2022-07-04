@@ -5,6 +5,10 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+.App {
+    padding-top: 20px;
+}
+
 nav {
     height: 100px;
     display: flex;
@@ -166,4 +170,34 @@ nav {
     text-align: center;
     font-size: 1.25rem;
     padding: 20px;
+}
+
+/**  Css of Home   **/
+
+.main-home {
+    height: 78.5vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: url('https://c.wallhere.com/photos/62/46/Pok_mon_Pok_Balls-238112.jpg!d');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.main-home div {
+    padding: 50px;
+    font-size: 1.5rem;
+}
+
+.main-home img {
+    width: 400px;
+    padding-bottom: 50px;
+}
+
+.home-text {
+    color: whitesmoke;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.65);
+    padding-left: 100px;
+    text-align: center;
 }

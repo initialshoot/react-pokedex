@@ -11,7 +11,7 @@ const Pagination = (props) => {
                 </div>
             </button>
             <div className="pages">
-                {page} de {totalPages}
+                Box {page} of {totalPages}
             </div>
             <button onClick={onRightClick}>
                 <div>
