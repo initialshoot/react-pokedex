@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CaughtContext from "../contexts/caught";
 
-const Pokemon = (props) => {
+const OnePokemon = (props) => {
 
     const { pokemon } = props;
     const { caughtPokemons, updateCaughtPokemon } = useContext(CaughtContext);
@@ -45,6 +45,11 @@ const Pokemon = (props) => {
         return type.type.name;
     });
 
+    const abilities =
+    pokemon.abilities.map((ability) => {
+        return ability.ability.name;
+    });
+
     const typeOne = typeName[0];
     const typeTwo = typeName[1];
 
@@ -54,39 +59,48 @@ const Pokemon = (props) => {
 
     return (
 
-        <a className="pokemon-card" href={`/pokemon/info`} style = {{background: bgColor[typeName[0]] || defaultBackground}}>
+        <a className="pokemon-card2" style={{background: bgColor[typeName[0]] || defaultBackground}}>
             <div className="pokemon-img-container">
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img"/>
+                <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img2"/>
             </div>
-            <div className="card-body">
+            <div className="card-body info-poke">
                 <div className="card-top">
                     <h3>{pokemon.name}</h3>
                     <div>#{pokemon.id}</div>
-                </div>  
-                <div className="card-bottom">
-                    <div className="pokemon-type">
-    
+
+                    <div className="card-bottom2">
+                        <button onClick={catchPokemon}>
+                            <div className="pokemon-favorite">{caughtCount}</div>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div className="pokemon-type2">
                             <div className="type-img">
                                 <img src={getTypeImgOne} alt={typeOne}></img>
                             </div>
-
                             <div className="type-img">
                                 {typeTwo ? 
                                     (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
                                     (<span></span>)
                                 }
-                            </div>
-                        
+                            </div>    
                     </div>
 
-                    <button onClick={catchPokemon}>
-                        <div className="pokemon-favorite">{caughtCount}</div>
-                    </button>
-                        
+                    <div>Weight: {pokemon.weight}</div>
+                    <div>Height: {pokemon.height}</div>
                 </div>
+                <div>
+                    <div>Base Experience: {pokemon.base_experience}</div>
+
+                    <div className="abilities">Abilities: <br/>
+                    <br/>{abilities[0]} {abilities[1]}
+                    </div>
+                </div>
+            
             </div>
         </a>
     );
 };
 
-export default Pokemon;
+export default OnePokemon;

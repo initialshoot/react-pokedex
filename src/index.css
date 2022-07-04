@@ -174,6 +174,7 @@ nav {
     display: flex;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
+    text-decoration: none;
 }
 
 .pokemon-img-container {
@@ -276,7 +277,7 @@ nav {
 /**   About-component   **/
 
 .main-about {
-    height: 78.5vh;
+    height: auto;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -304,3 +305,48 @@ nav {
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.65);
     text-align: center;
 }
+
+/** Info **/
+
+.pokemon-card2 {
+    color: whitesmoke;
+    outline: transparent;
+    text-decoration: none;
+}
+
+.info-poke div div{
+    padding: 20px;
+}
+
+.pokemon-card2 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.abilities {
+    text-transform: capitalize;
+}
+
+.pokemon-type2 {
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.card-bottom2 button {
+    border: none;
+    background-color: transparent;
+    transform: scale(1.7);
+    cursor: pointer;
+}
+
+.pokemon-img2 {
+    width: 180px;
+    height: 180px;
+}
+

@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
 import Home from "./components/home";
+import Info from "./components/info";
 import About from "./components/about";
 
 import { CaughtProvider } from "./contexts/caught";
@@ -87,6 +88,8 @@ function App() {
     setSearching(false);
   };
 
+  console.log(pokemons);
+
   return (
 
         <CaughtProvider 
@@ -105,7 +108,14 @@ function App() {
                 
                   <Route path="/" element={<Home />}/>
 
-                  <Route path='/matricula' element={<About />}/>
+                  <Route path="/matricula" element={<About />}/>
+
+                  <Route path={`/pokemon/info`} element={<Info 
+                                loading={loading} 
+                                pokemons={pokemons} 
+                                page={page} 
+                                setPage={setPage} 
+                                total={total} />}/>
 
                   <Route path="/pokemons" element={  
                   
