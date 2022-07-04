@@ -23,6 +23,37 @@ nav {
 
 /**   Nav-bar  **/
 
+.options {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+}
+
+.options a {
+    padding: 20px;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+.options a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.options a:link,
+.options a:visited {
+    color: whitesmoke;
+    outline: transparent;
+    text-decoration: none;
+}
+
+
 .home-btn {
     cursor: pointer;
     background: transparent;
@@ -32,6 +63,29 @@ nav {
 .navbarImg {
     width: 160px;
 }
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom right;
+  }
 
 /**   Search-Area  **/
 
@@ -89,6 +143,21 @@ nav {
 .pages {
     padding: 10px;
 }
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pagination button {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/**   Pokedex  **/
 
 .pokedex-grid {
     display: grid;
@@ -165,19 +234,6 @@ nav {
     border: none;
     background-color: transparent;
     transform: scale(1.7);
-    cursor: pointer;
-}
-
-.pagination {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.pagination button {
-    border: none;
-    background-color: transparent;
-    font-size: 2rem;
     cursor: pointer;
 }
 
