@@ -27,7 +27,7 @@ const Navbar = () => {
                         Pokemons
                     </a>
 
-                    <a href="/about" className='hover-underline-animation'>
+                    <a href="/matricula" className='hover-underline-animation'>
                         About
                     </a>
 
