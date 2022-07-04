@@ -1,5 +1,9 @@
 import React from "react";
+import CaughtContext from "../contexts/caught"
+
 const { useState } = React;
+
+const {useContext} = React;
 
 const SearchBar = (props) => {
 
@@ -17,6 +21,8 @@ const SearchBar = (props) => {
         onSearch(search);
     };
 
+    const { caughtPokemons } = useContext(CaughtContext); 
+
     return (
         
         <div className="searchbar-container">
@@ -26,6 +32,10 @@ const SearchBar = (props) => {
             
             <div className="searchbar-btn">
                 <button onClick={onClick}>Search</button>
+            </div>
+
+            <div>
+                <h1 className='caught-pokemon'>Caught Pokemons: ✅ {caughtPokemons.length}</h1>
             </div>
 
         </div>

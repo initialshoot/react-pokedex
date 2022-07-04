@@ -1,31 +1,24 @@
 import React from 'react';
-import CaughtContext from "../contexts/caught"
-
-const {useContext} = React;
 
 const Navbar = () => {
 
-    const { caughtPokemons } = useContext(CaughtContext); 
-
-    let imgUrl = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+    let imgUrl = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
 
     return (
 
         <nav>
 
-            <div />
-
             <div>
-                <img 
-                src={imgUrl}
-                alt="Logo Pokeapi"
-                className='navbarImg'
-                />
+
+                <button className='home-btn'>
+                    <img 
+                    src={imgUrl}
+                    alt="Logo Pokeapi"
+                    className='navbarImg'
+                    />
+                </button>
+                
             </div>
-
-            <div>
-                <h1 className='caught-pokemon'>Caught Pokemons: ✅ {caughtPokemons.length}</h1>
-                 </div>
             
 
         </nav>

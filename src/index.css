@@ -9,6 +9,8 @@
     padding-top: 20px;
 }
 
+/**  Nav **/
+
 nav {
     height: 100px;
     display: flex;
@@ -19,19 +21,30 @@ nav {
     color: whitesmoke;
 }
 
-.caught-pokemon {
-    user-select: none;
+/**   Nav-bar  **/
+
+.home-btn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 .navbarImg {
     width: 160px;
 }
 
+/**   Search-Area  **/
+
 .searchbar-container {
     display: flex;
     margin: 0px auto;
     padding: 0 20px;
     align-items: center;
+}
+
+.caught-pokemon {
+    user-select: none;
+    padding-left: 300px;
 }
 
 .searchbar {
@@ -61,6 +74,8 @@ nav {
     color: white;
     padding: 10px 12px;
 }
+
+/**   Pagination  **/
 
 .header {
     user-select: none;
@@ -172,7 +187,7 @@ nav {
     padding: 20px;
 }
 
-/**  Css of Home   **/
+/**  Home-Component   **/
 
 .main-home {
     height: 78.5vh;
