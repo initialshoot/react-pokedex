@@ -4,6 +4,8 @@ import Footer from "./components/footer";
 import Pokedex from "./components/pokedex";
 import Search from "./components/search";
 import Home from "./components/home";
+import About from "./components/about";
+
 import { CaughtProvider } from "./contexts/caught";
 import { getPokemonData, getPokemons, searchPokemon } from "./pokeApi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -100,7 +102,11 @@ function App() {
             
               <BrowserRouter>
                 <Routes>
+                
                   <Route path="/" element={<Home />}/>
+
+                  <Route path='/about' element={<About />}/>
+
                   <Route path="/pokemons" element={  
                   
                     <div className="App">

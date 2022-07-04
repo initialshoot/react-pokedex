@@ -27,7 +27,7 @@ const Navbar = () => {
                         Pokemons
                     </a>
 
-                    <a heref="" className='hover-underline-animation'>
+                    <a href="/about" className='hover-underline-animation'>
                         About
                     </a>
 
