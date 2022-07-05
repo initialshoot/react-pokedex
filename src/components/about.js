@@ -1,11 +1,12 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const About = () => {
 
     return (
 
         <div className='main-about'>
-
+            <Outlet />
             <div>
             
                 <img src='https://dev-osanchez.000webhostapp.com/yo.bc970eacd96583f39bc1.jpeg' alt='Personal photo' />
@@ -26,7 +27,7 @@ const About = () => {
 
             </div>
            
-
+            
         </div>
 
     );

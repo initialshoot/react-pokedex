@@ -105,7 +105,7 @@ function App() {
               <BrowserRouter>
                 <Routes>
                 
-                  <Route path="/" element={<Home />}/>
+                  <Route path="/" element={<Home />} />
 
                     <Route path="/matricula" element={<About />}/>
 
@@ -129,7 +129,10 @@ function App() {
                       <Route path=":pokemonId" element={<OnePokemon />} />
                     
                     </Route>
-                  
+
+                  <Route path="*" element={<main style={{ padding: "10rem", textAlign: "center", height: "44vh", background: "darkslategray", color: "whitesmoke"}}><p>Page not Found</p>
+                      <br/><img src="https://c.tenor.com/ZQvpE8_p-hMAAAAC/pokemon-confused.gif" class="img-fluid rounded-top" alt="" />
+                  </main>}/>
                 </Routes>
               </BrowserRouter>
               
