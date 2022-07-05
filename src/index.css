@@ -332,16 +332,21 @@ nav {
 }
 
 .pokemon-type2 {
-    width: 100px;
     display: flex;
     justify-content: space-evenly;
+    align-items: baseline;
+    float: left;
 }
 
+.card-bottom2 {
+    display: flex;
+    align-items: flex-end;
+}
 
 .card-bottom2 button {
     border: none;
     background-color: transparent;
-    transform: scale(1.7);
+    font-size: 5rem;
     cursor: pointer;
 }
 
@@ -350,3 +355,28 @@ nav {
     height: 180px;
 }
 
+.pokedex-grid2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 18px;
+    padding: 0px 10px;
+    padding-bottom: 30px;
+}
+
+.pokemon-img-container2 {
+    padding: 0px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.abilities li {
+    padding-bottom: 15px;
+}
+
+.card-body2 {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 10px 10px 10px;
+    flex: 1 1;
+    flex-direction: column;
+}
