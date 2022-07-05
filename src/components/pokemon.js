@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CaughtContext from "../contexts/caught";
+import { Link } from "react-router-dom";
 
 const Pokemon = (props) => {
 
@@ -51,41 +52,39 @@ const Pokemon = (props) => {
     const getTypeImgOne = `https://veekun.com/dex/media/types/en/${typeOne}.png`;
     const getTypeImgTwo = `https://veekun.com/dex/media/types/en/${typeTwo}.png`;
 
-
     return (
-
-        <a className="pokemon-card" href={`/pokemon/info`} style = {{background: bgColor[typeName[0]] || defaultBackground}}>
-            <div className="pokemon-img-container">
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img"/>
-            </div>
-            <div className="card-body">
-                <div className="card-top">
-                    <h3>{pokemon.name}</h3>
-                    <div>#{pokemon.id}</div>
-                </div>  
-                <div className="card-bottom">
-                    <div className="pokemon-type">
-    
-                            <div className="type-img">
-                                <img src={getTypeImgOne} alt={typeOne}></img>
-                            </div>
-
-                            <div className="type-img">
-                                {typeTwo ? 
-                                    (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
-                                    (<span></span>)
-                                }
-                            </div>
-                        
+            <Link to={`/pokemons/${pokemon.id}`} key={pokemon.id} className="pokemon-card" style = {{background: bgColor[typeName[0]] || defaultBackground}}>
+                    <div className="pokemon-img-container">
+                        <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img"/>
                     </div>
+                <div className="card-body">
+                    <div className="card-top">
+                        <h3>{pokemon.name}</h3>
+                        <div>#{pokemon.id}</div>
+                    </div>  
+                    <div className="card-bottom">
+                        <div className="pokemon-type">
+        
+                                <div className="type-img">
+                                    <img src={getTypeImgOne} alt={typeOne}></img>
+                                </div>
 
-                    <button onClick={catchPokemon}>
-                        <div className="pokemon-favorite">{caughtCount}</div>
-                    </button>
-                        
+                                <div className="type-img">
+                                    {typeTwo ? 
+                                        (<img src={getTypeImgTwo} alt={typeTwo}></img>) :
+                                        (<span></span>)
+                                    }
+                                </div>
+                            
+                        </div>
+
+                        <button onClick={catchPokemon}>
+                            <div className="pokemon-favorite">{caughtCount}</div>
+                        </button>
+                            
+                    </div>
                 </div>
-            </div>
-        </a>
+            </Link>
     );
 };
 

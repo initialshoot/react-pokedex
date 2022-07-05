@@ -59,7 +59,7 @@ const OnePokemon = (props) => {
 
     return (
 
-        <a className="pokemon-card2" style={{background: bgColor[typeName[0]] || defaultBackground}}>
+        <div className="pokemon-card2" style={{background: bgColor[typeName[0]] || defaultBackground}}>
             <div className="pokemon-img-container">
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img2"/>
             </div>
@@ -99,7 +99,7 @@ const OnePokemon = (props) => {
                 </div>
             
             </div>
-        </a>
+        </div>
     );
 };
 

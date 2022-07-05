@@ -10,6 +10,7 @@ import About from "./components/about";
 import { CaughtProvider } from "./contexts/caught";
 import { getPokemonData, getPokemons, searchPokemon } from "./pokeApi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import OnePokemon from "./components/onePokemon";
 
 const { useState, useEffect } = React;
 
@@ -88,8 +89,6 @@ function App() {
     setSearching(false);
   };
 
-  console.log(pokemons);
-
   return (
 
         <CaughtProvider 
@@ -108,32 +107,28 @@ function App() {
                 
                   <Route path="/" element={<Home />}/>
 
-                  <Route path="/matricula" element={<About />}/>
+                    <Route path="/matricula" element={<About />}/>
 
-                  <Route path={`/pokemon/info`} element={<Info 
-                                loading={loading} 
-                                pokemons={pokemons} 
-                                page={page} 
-                                setPage={setPage} 
-                                total={total} />}/>
+                    <Route path="/pokemons" element={  
+                    
+                        <div className="App">
+                          <Search onSearch={onSearch} />
 
-                  <Route path="/pokemons" element={  
-                  
-                    <div className="App">
-                      <Search onSearch={onSearch} />
+                                {notFound ? (
+                                  <div className="not-found-text">Pokemon not found.</div>) :
+                                  (<Pokedex 
+                                    loading={loading} 
+                                    pokemons={pokemons} 
+                                    page={page} 
+                                    setPage={setPage} 
+                                    total={total} /> )
+                                } 
+                        </div>
+                      }> 
 
-                            {notFound ? (
-                              <div className="not-found-text">Pokemon not found.</div>) :
-                              (<Pokedex 
-                                loading={loading} 
-                                pokemons={pokemons} 
-                                page={page} 
-                                setPage={setPage} 
-                                total={total} /> )
-                            } 
-                    </div>
-
-                  }/>
+                      <Route path=":pokemonId" element={<OnePokemon />} />
+                    
+                    </Route>
                   
                 </Routes>
               </BrowserRouter>
