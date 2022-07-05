@@ -53,7 +53,7 @@ const Pokemon = (props) => {
     const getTypeImgTwo = `https://veekun.com/dex/media/types/en/${typeTwo}.png`;
 
     return (
-            <Link to={`/pokemons/${pokemon.id}`} key={pokemon.id} className="pokemon-card" style = {{background: bgColor[typeName[0]] || defaultBackground}}>
+            <Link to={`/pokemon/${pokemon.id}`} key={pokemon.id} className="pokemon-card" style = {{background: bgColor[typeName[0]] || defaultBackground}}>
                     <div className="pokemon-img-container">
                         <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-img"/>
                     </div>

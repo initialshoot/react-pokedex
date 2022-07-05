@@ -103,6 +103,7 @@ function App() {
             <Navbar />
             
               <BrowserRouter>
+              
                 <Routes>
                 
                   <Route path="/" element={<Home />} />
@@ -124,16 +125,26 @@ function App() {
                                     total={total} /> )
                                 } 
                         </div>
-                      }> 
+                      }/> 
 
-                      <Route path=":pokemonId" element={<OnePokemon />} />
-                    
-                    </Route>
+                    <Route path="/pokemon/:pokemonId" element={
+                                    <Info 
+                                    loading={loading} 
+                                    pokemons={pokemons} 
+                                    page={page} 
+                                    setPage={setPage} 
+                                    total={total}/>}/>
 
-                  <Route path="*" element={<main style={{ padding: "10rem", textAlign: "center", height: "44vh", background: "darkslategray", color: "whitesmoke"}}><p>Page not Found</p>
+                  <Route path="*" element={
+                    <main style={{ padding: "10rem", textAlign: "center", height: "44vh", background: "darkslategray", color: "whitesmoke"}}>
+                      <p>Page not Found</p>
                       <br/><img src="https://c.tenor.com/ZQvpE8_p-hMAAAAC/pokemon-confused.gif" class="img-fluid rounded-top" alt="" />
-                  </main>}/>
+                  </main>
+                  }/>
+
+
                 </Routes>
+
               </BrowserRouter>
               
             <Footer />
